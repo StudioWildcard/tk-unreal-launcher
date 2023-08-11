@@ -33,7 +33,7 @@ class UnrealLauncher():
         self.project_id = launch_dict.get("sg_project_id", "254")
         # sg-ai config ID: "727" - ARK2 - Beta config ID: "529" - ARK2 - Primary config ID: "298"
         #self.config_id = "496"
-        self.config_name = "alaa ark1"
+        #self.config_name = "alaa ark1"
         self.tk_unreal_version = "v1.2.0"
         self.unrealqt_version = "v1.2.2"
 
