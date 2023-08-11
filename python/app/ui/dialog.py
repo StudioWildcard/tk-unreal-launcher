@@ -85,17 +85,17 @@ class Ui_Dialog(object):
         self.outputDialogBtn.setText("Add project path")
         self.outputDialogBtn.setToolTip('Browse .uproject files to add another project path in the form of %SG_UNREAL_PROJECT_ARK%/Projects/ShooterGame/ShooterGame.uproject')
 
-        #self.packageButton = QtGui.QPushButton()
-        #self.packageButton.setText("Accept project path")
-        #self.packageButton.setToolTip('Accept project path')
+        self.save_project_path = QtGui.QPushButton()
+        self.save_project_path.setText("Save project path")
+        self.save_project_path.setToolTip('Save current project path')
 
         self.unreal_launcher_btn = QtGui.QPushButton()
         self.unreal_launcher_btn.setText("Launch Unreal Editor")
-        self.unreal_launcher_btn.setToolTip("Save the current settings, launch Unreal Editor and close the dialog")
+        self.unreal_launcher_btn.setToolTip("Save the current settings and launch Unreal Editor")
 
         #self.fileLayout.addWidget(self.outputPathText)
         self.fileLayout.addWidget(self.outputDialogBtn)
-        # self.fileLayout.addWidget(self.packageButton)
+        self.fileLayout.addWidget(self.save_project_path)
         self.fileLayout.addWidget(self.unreal_launcher_btn)
 
         #self.outputLayout.addWidget(self.outputLabel)

@@ -108,7 +108,7 @@ class AppDialog(QtGui.QWidget):
         self.launch_dict = {}
 
         self.playlistSelection.clicked.connect(self.setPlaylist)
-        #self.ui.packageButton.clicked.connect(self.save_project_paths_file)
+        self.ui.save_project_path.clicked.connect(self.save_project_paths_file)
         self.ui.unreal_launcher_btn.clicked.connect(self.launch_unreal)
 
 
@@ -193,6 +193,8 @@ class AppDialog(QtGui.QWidget):
                 f.write(line + '\n')
         # close the file
         f.close()
+        msg = "\n <span style='color:#2C93E2'>Saving project path to file {}</span> \n".format(self.unreal_filepath)
+        self.log_status(msg)
 
 
 
