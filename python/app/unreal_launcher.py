@@ -51,11 +51,11 @@ class UnrealLauncher():
         self.virtual_env = "{}/github/ue4plugins/tk-framework-unrealqt/{}/python/vendors/py3/windows".format(self.bundle_cache, self.unrealqt_version)
         self.unrealqt_scripts = "{}/Scripts".format(self.virtual_env)
         self.cfg = os.environ.get("TANK_CURRENT_PC")
-        if not self.cfg:
-            # CFG value
-            # Find this value if needed
-            self.basic_desktop = "p188c529"
-            self.cfg = "{}/Shotgun/ark/{}.basic.desktop/cfg".format(self.app_data, self.basic_desktop)
+        #if not self.cfg:
+        #    # CFG value
+        #    # Find this value if needed
+        #    self.basic_desktop = "p188c529"
+        #    self.cfg = "{}/Shotgun/ark/{}.basic.desktop/cfg".format(self.app_data, self.basic_desktop)
         self.site_packages = "C:/Program Files/Shotgun/Python3/lib/site-packages"
         self.ssl_cert = "{}/certifi/cacert.pem".format(self.site_packages)
         self.ue_pythonpath = "{}/install/core/python".format(self.cfg)
@@ -75,15 +75,15 @@ class UnrealLauncher():
         Setting/modifying env variables needed to run UE5 with SG menu
         """
         print("Setting/modifying env variables needed to run UE5 with SG menu ...")
-        os.environ["PYTHONPATH"] = self.cfg_python
-        os.environ["QT_D3DCREATE_MULTITHREADED"] = "1"
-        os.environ["SHOTGUN_BUNDLE_CACHE_FALLBACK_PATHS"] = self.bundle_cache_fall_back
-        os.environ["SHOTGUN_DESKTOP_CURRENT_USER"] = "(dp0"
+        # os.environ["PYTHONPATH"] = self.cfg_python
+        #os.environ["QT_D3DCREATE_MULTITHREADED"] = "1"
+        #os.environ["SHOTGUN_BUNDLE_CACHE_FALLBACK_PATHS"] = self.bundle_cache_fall_back
+        #os.environ["SHOTGUN_DESKTOP_CURRENT_USER"] = "(dp0"
         os.environ["SHOTGUN_ENGINE"] = "tk-unreal"
-        os.environ["SHOTGUN_ENTITY_ID"] = str(self.project_id)
-        os.environ["SHOTGUN_ENTITY_TYPE"] = "Project"
+        #os.environ["SHOTGUN_ENTITY_ID"] = str(self.project_id)
+        #os.environ["SHOTGUN_ENTITY_TYPE"] = "Project"
         #os.environ["SHOTGUN_PIPELINE_CONFIGURATION_ID"] = self.config_id
-        os.environ["SHOTGUN_SITE"] = "https://ark.shotgunstudio.com"
+        #os.environ["SHOTGUN_SITE"] = "https://ark.shotgunstudio.com"
 
         os.environ["UE_PYTHONPATH"] = self.ue_pythonpath
         os.environ["UE_SHOTGRID_BOOTSTRAP"] = self.sg_bootstrap
@@ -101,7 +101,7 @@ class UnrealLauncher():
         os.environ["PATH"] = "{}{}{}".format(self.ark_pyside2, self.sep, os.environ.get("PATH"))
         os.environ["PATH"] = "{}{}{}".format(self.unrealqt_scripts, self.sep, os.environ.get("PATH"))
         os.environ["SSL_CERT_FILE"] = self.ssl_cert
-        os.environ["TANK_CURRENT_PC"] = self.cfg
+        #os.environ["TANK_CURRENT_PC"] = self.cfg
         os.environ["VIRTUAL_ENV"] = self.virtual_env
 
     def run_unreal(self):
@@ -154,7 +154,8 @@ class UnrealLauncher():
         """
         Run using the SG toolkit manager that uses bootstrapping
         """
-        self.sg_toolkit_manager()
+        # We don't need to bootstrap if we are already in SG environment
+        # self.sg_toolkit_manager()
         # We must set missing env variables whether we are in UE5 environment or not
         self.set_sg_env()
         # Run UE5
