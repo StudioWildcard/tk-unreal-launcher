@@ -196,9 +196,9 @@ class AppDialog(QtGui.QWidget):
         msg = "\n <span style='color:#2C93E2'>Saving project path to file {}</span> \n".format(self.unreal_filepath)
         self.log_status(msg)
 
-        for key, value in os.environ.items():
-            msg = f"{key}: {value}"
-            logger.debug(msg)
+        #for key, value in os.environ.items():
+        #    msg = f"{key}: {value}"
+        #    logger.debug(msg)
 
 
 
