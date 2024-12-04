@@ -18,7 +18,7 @@ for name, cls in QtGui.__dict__.items():
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
-        self.app = QtWidgets.QApplication.instance()
+        self.app = QApplication.instance()
         self.app.processEvents()
 
         Dialog.setObjectName("Dialog")
@@ -51,7 +51,7 @@ class Ui_Dialog(object):
         self.playlistLabel = QtGui.QLabel(Dialog)
         self.playlistLabel.setText("Project paths")
 
-        self.playlistSelection = QtWidgets.QListWidget()
+        self.playlistSelection = QListWidget()
         self.playlistSelection.setToolTip('Select project path in the form of %SG_UNREAL_PROJECT_ARK%/Projects/ShooterGame/ShooterGame.uproject')
 
         self.playlistLayout.addWidget(self.playlistLabel)
@@ -112,7 +112,7 @@ class Ui_Dialog(object):
         self.progressLabel = QtGui.QLabel(Dialog)
         self.progressLabel.setText("Progress")
 
-        self.status_dialog = QtWidgets.QTextBrowser(Dialog)
+        self.status_dialog = QTextBrowser(Dialog)
         self.status_dialog.verticalScrollBar().setValue(self.status_dialog.verticalScrollBar().maximum())
         self.status_dialog.setMinimumHeight(100)
 
