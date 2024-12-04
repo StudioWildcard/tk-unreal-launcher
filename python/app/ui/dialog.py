@@ -7,10 +7,13 @@
 # WARNING! All changes made in this file will be lost!
 
 
-from tank.platform.qt import QtCore, QtGui
-from tank.platform.qt5 import QtWidgets
-#from qgis.PyQt.QtWidgets import QVBoxLayout
-from . import separator
+from sgtk.platform.qt import QtCore
+for name, cls in QtCore.__dict__.items():
+    if isinstance(cls, type): globals()[name] = cls
+
+from sgtk.platform.qt import QtGui
+for name, cls in QtGui.__dict__.items():
+    if isinstance(cls, type): globals()[name] = cls
 
 
 class Ui_Dialog(object):

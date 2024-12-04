@@ -14,8 +14,13 @@ import sys
 from . unreal_launcher import UnrealLauncher
 from pathlib import Path
 from os.path import expanduser
+from sgtk.platform.qt import QtCore
+for name, cls in QtCore.__dict__.items():
+    if isinstance(cls, type): globals()[name] = cls
 
-from tank.platform.qt5 import QtWidgets
+from sgtk.platform.qt import QtGui
+for name, cls in QtGui.__dict__.items():
+    if isinstance(cls, type): globals()[name] = cls
 
 # import shutil
 import shutil
@@ -23,7 +28,7 @@ import shutil
 
 # by importing QT from sgtk rather than directly, we ensure that
 # the code will be compatible with both PySide and PyQt.
-from sgtk.platform.qt import QtCore, QtGui
+#from sgtk.platform.qt import QtCore, QtGui
 from .ui.dialog import Ui_Dialog
 from collections import deque
 
@@ -73,7 +78,7 @@ class AppDialog(QtGui.QWidget):
         # it is often handy to keep a reference to this. You can get it via the following method:
         self._app = sgtk.platform.current_bundle()
 
-        self.widget_app = QtWidgets.QApplication.instance()
+        self.widget_app = QApplication.instance()
 
         # create a bg task manager for pulling data from SG
         # self._bg_task_manager = task_manager.BackgroundTaskManager(self)
